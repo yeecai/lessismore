@@ -12,8 +12,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^5.1.2",
+    "react-router-redux": "^4.0.8",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.15",

@@ -23,6 +23,21 @@ var config = {
       }, {
         test: /\.css$/, // Only .css files
         loader: 'style-loader!css-loader' // Run both loaders
+      },
+      {
+        test: /\.less$/,
+        use:[
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader"
+          },
+          {
+            loader: "less-loader"
+          }
+        ] 
+        
       }
     ]
   },

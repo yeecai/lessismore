@@ -18,8 +18,7 @@ class AppRouter extends React.Component {
         <Switch>
           <Route  exact path="/"  component={Home} />
         </Switch>
-
-        {/* <div>ok header done, doing home, </div> */}
+        
       </React.Fragment>
 
     )

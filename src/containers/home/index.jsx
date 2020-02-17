@@ -24,7 +24,7 @@ export class Home extends React.Component {
                             <img/>
                             <p>this is list content</p>
                         </div>
-                        <p className="article-item">Someone's work 3 likes</p>
+                        <p className="item-footer">Someone's work 3 likes</p>
                     </a>
 
                     <a className="article-item">
@@ -33,7 +33,7 @@ export class Home extends React.Component {
                             <img/>
                             <p>this is list content</p>
                         </div>
-                        <p className="article-item">Someone's work 3 likes</p>
+                        <p className="item-footer">Someone's work 3 likes</p>
                     </a>
 
                     <a className="article-item">
@@ -42,7 +42,7 @@ export class Home extends React.Component {
                             <img/>
                             <p>this is list content</p>
                         </div>
-                        <p className="article-item">Someone's work 3 likes</p>
+                        <p className="item-footer">Someone's work 3 likes</p>
                     </a>
                 </div>
             </div>

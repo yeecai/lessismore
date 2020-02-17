@@ -12,13 +12,10 @@ class AppRouter extends React.Component {
   render() {
     return (
       <React.Fragment>
-        
         <Header/>
-        
         <Switch>
           <Route  exact path="/"  component={Home} />
         </Switch>
-        
       </React.Fragment>
 
     )

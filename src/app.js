@@ -4,6 +4,7 @@ import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 import AppRouter from "./containers/AppRouter.jsx";
+import Axios from "axios";
 const store = configureStore();
 
 render(
@@ -14,3 +15,5 @@ render(
   </HashRouter>,
   document.getElementById("app")
 );
+
+

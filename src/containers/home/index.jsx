@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./index.less";
 
-export class Home extends React.Component {
+    export class Home extends React.Component {
     constructor() {
         super();
         this.state = {

@@ -12,12 +12,11 @@ export default class Loading extends React.Component {
             <div className="init-loading-wrapper">
                 <div className="init-loading">
                     <div className="loading-ring">
-                        <div>
+                        <div className="loading-ball-holder">
                             <div className="loading-ball1" />
                             <div className="loading-ball2" />
                             <div className="loading-ball3" />
                             <div className="loading-ball4" />
-                            <a>hmm loading here</a>
                         </div>
                     </div>
                 </div>
@@ -30,6 +29,7 @@ const showLoading = () => {
     const wrapper = document.createElement("div");
     ReactDom.render(<Loading />, wrapper);
     document.body.appendChild(wrapper);
+    return wrapper;
 }
 
 const hideLoading = wrapper => {

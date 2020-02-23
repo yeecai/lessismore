@@ -1,13 +1,14 @@
 import React from "react";
 import axios from "axios";
 import "./index.less";
+import { removeLoading, addLoading } from "../../components/Loading/index";
 
     export class Home extends React.Component {
     constructor() {
         super();
         this.state = {
-            // data: [{title:"a"}],
-            data: [],
+            data: [{title:"a"}],
+            // data: [],
             hasMore: false, // 是否有下一页
             active: 0
           };
@@ -16,16 +17,18 @@ import "./index.less";
     componentDidMount() {
         // page 为当前页码，type 为列表类型："推荐", "生活", "科技"
         this.fetchList({ page: 1, type: 0 });
+        setTimeout(removeLoading, 100);        
       }
 
     fetchList (params, isRefresh) {
+        addLoading();
         axios({
           url: "https://www.easy-mock.com/mock/590766877a878d73716e4067/mock/list",
           params: params
         }).then(res => {
           const { result, success } = res.data;
           if (success) {
-            removeLoading();
+            // removeLoading();
             let data;
             if (isRefresh) {
               data = result.data;

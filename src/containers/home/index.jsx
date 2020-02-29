@@ -2,8 +2,9 @@ import React from "react";
 import axios from "axios";
 import "./index.less";
 import { removeLoading, addLoading } from "../../components/Loading/index";
+import { loginModalShow } from "../../actions/index";
 
-    export class Home extends React.Component {
+export class Home extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -12,6 +13,7 @@ import { removeLoading, addLoading } from "../../components/Loading/index";
             hasMore: false, // 是否有下一页
             active: 0
           };
+
     }
 
     componentDidMount() {
@@ -42,8 +44,14 @@ import { removeLoading, addLoading } from "../../components/Loading/index";
             });
           }
         });
+    }
+
+    toDetails = () => {
+      loginModalShow();
     };
-       
+
+    // why arrow function like "toDetails = () => {}" not working here
+
     render() {
       const { data, hasMore, active } = this.state;
         return (
@@ -62,6 +70,7 @@ import { removeLoading, addLoading } from "../../components/Loading/index";
                                 <a 
                                     className="article-item"
                                     key={index}
+                                    onClick={() => this.toDetails(item.id)}
                                 >
                                      <h4>{item.title}</h4>
                                      <div className="content">
@@ -73,7 +82,6 @@ import { removeLoading, addLoading } from "../../components/Loading/index";
                             )
                         })
                     }
-                    
                 </div>
             </div>
         );

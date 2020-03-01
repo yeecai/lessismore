@@ -41,7 +41,7 @@ class Login extends Component {
                             <div className="modal-content">
                                 <div className="modal-header">
                                 <i onClick={loginModalhide} className="iconfont">&#xe85c;</i>
-                                    <h4 className="modal-title">登录</h4>
+                                    <h4 className="modal-title">Login</h4>
                                 </div>
 
                                 <div className="modal-body">
@@ -55,11 +55,11 @@ class Login extends Component {
                                         className=""/>
 
                                     <button>
-                                         log in
+                                         Log in
                                      </button>
 
                                      <a>Forgot password?</a>
-                                     <p className="agreement">Click log in means your agree with our rules</p>
+                                     <p className="agreement">Log in means your agree with that we spy on your phone lol</p>
 
                                 </div>
                             </div>

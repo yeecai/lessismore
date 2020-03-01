@@ -18,7 +18,7 @@ const Header = props => {
                 </div>
                 {/* Its login button! */}
                 <div className="header-login">
-                    <button onClick={loginModalShow}>Login</button>
+                    <button onClick={loginModalShow}>log in</button>
                 </div>
             </nav>
         </header>

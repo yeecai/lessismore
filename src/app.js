@@ -6,6 +6,7 @@ import configureStore from "./store/configureStore";
 import AppRouter from "./containers/AppRouter.jsx";
 import Axios from "axios";
 const store = configureStore();
+import "./styles/index.less";
 
 render(
   <HashRouter>

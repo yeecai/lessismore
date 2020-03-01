@@ -1,8 +1,15 @@
 .fade {
-    opacity: 1;
     .modial-dailog {
         transform: translate(0 , 0);
     }
+    &:not(.show) {
+        opacity: 0;
+      }
+}
+
+.show {
+    opacity: 1;
+
 }
 
 .modal {

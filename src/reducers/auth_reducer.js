@@ -4,7 +4,7 @@ import {
     // AUTH_ERROR,
     // FETCH_MESSAGE,
     LOGIN_MODAL_SHOW,
-    // LOGIN_MODAL_HIDE
+    LOGIN_MODAL_HIDE
   } from "../actions/types";
   
   // export function authReducer(state = {}, action) {
@@ -26,8 +26,8 @@ import {
     switch (action.type) {
       case LOGIN_MODAL_SHOW:
         return { ...state, visible: true };
-      // case LOGIN_MODAL_HIDE:
-      //   return { ...state, visible: false };
+      case LOGIN_MODAL_HIDE:
+        return { ...state, visible: false };
       default:
         return state;
     }

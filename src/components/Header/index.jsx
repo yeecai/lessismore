@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import "./index.less";
+import { loginModalShow } from "../../actions/index";
 
 const Header = props => {
+    const { loginModalShow } = props;
     return (
         <header>
             <nav className="header-title">
@@ -14,12 +18,23 @@ const Header = props => {
                 </div>
                 {/* Its login button! */}
                 <div className="header-login">
-                    <button>Login</button>
+                    <button onClick={loginModalShow}>Login</button>
                 </div>
             </nav>
         </header>
     );
 };
 
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators(
+      {
+        loginModalShow
+      },
+      dispatch
+    );
+  };
 
-export default Header;
+export default connect(
+    null,
+  mapDispatchToProps
+)(Header);

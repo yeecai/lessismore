@@ -27,14 +27,14 @@ class Login extends Component {
         const { isLoginModalShow, loginModalhide } = this.props;
         const { visible } = isLoginModalShow;
         const divStyle = {
-            zIndex: visible ? "-1" : "1"
-         };
+            zIndex: visible ? "1" : "-1"
+        };
 
         return (
-            // <ModalContainer> </ModalContainer>   
+            <ModalContainer>   
                 <div
-                    className={`${visible ? "modal fade show" : "modal fade"}`}
-                    style={divStyle}
+                className={`${visible ? "modal fade show" : "modal fade"}`}
+                style={divStyle}
                 >
                     <div className="modal-backdrop">
                         <div className="modal-dialog">
@@ -58,7 +58,7 @@ class Login extends Component {
                                          log in
                                      </button>
 
-                                     <a href>Forgot password?</a>
+                                     <a>Forgot password?</a>
                                      <p className="agreement">Click log in means your agree with our rules</p>
 
                                 </div>
@@ -66,7 +66,7 @@ class Login extends Component {
                         </div>
                     </div>
                 </div>
-           
+                </ModalContainer> 
         );
     }
 };
@@ -79,7 +79,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
     return bindActionCreators(
         {
-            signUser,
+            // signUser,
             loginModalhide
         },
         dispatch

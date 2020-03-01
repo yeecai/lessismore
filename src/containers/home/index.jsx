@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import "./index.less";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import { removeLoading, addLoading } from "../../components/Loading/index";
 import { loginModalShow } from "../../actions/index";
 
@@ -8,7 +10,7 @@ export class Home extends React.Component {
     constructor() {
         super();
         this.state = {
-            data: [{title:"a"}],
+            data: [{title:"aaaaaa", content:"dfasdfasd"}],
             // data: [],
             hasMore: false, // 是否有下一页
             active: 0
@@ -47,6 +49,7 @@ export class Home extends React.Component {
     }
 
     toDetails = () => {
+      const {loginModalShow} = this.props;
       loginModalShow();
     };
 
@@ -54,6 +57,7 @@ export class Home extends React.Component {
 
     render() {
       const { data, hasMore, active } = this.state;
+      const {loginModalShow} = this.props;
         return (
             <div className="list-home">
                 {/* Menu */}
@@ -70,7 +74,8 @@ export class Home extends React.Component {
                                 <a 
                                     className="article-item"
                                     key={index}
-                                    onClick={() => this.toDetails(item.id)}
+                                    // onClick={() => this.toDetails(item.id)}
+                                    onClick={loginModalShow}
                                 >
                                      <h4>{item.title}</h4>
                                      <div className="content">
@@ -88,4 +93,18 @@ export class Home extends React.Component {
     }
 }
 
-export default Home;
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      loginModalShow
+    },
+    dispatch
+  );
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Home);
+
+// export default Home;

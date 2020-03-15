@@ -2,7 +2,7 @@ import React,  { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import ModalContainer from "./ModalContainers";
-import { signUser, loginModalhide } from "../../actions/index";
+import { signinUser, loginModalhide } from "../../actions/index";
 import "./index.less";
 import { prototype } from "enzyme-adapter-react-16";
 
@@ -16,11 +16,34 @@ class Login extends Component {
     }
 
     handleChange = event => {
-
+        const target = event.target;
+        if ( target.type === 'text') {
+            this.setState({ userName: target.value});
+        } else if (target.type === 'password') {
+            this.setState({ password: target.value });
+        }
     };
 
     toLogin = () => {
+        const { userName, password } = this.state;
+        const { signinUser, loginModalhide } = this.props;
+        if (userName === "" || userName !== "admin") {
+            alert("wrong account or password bro");
+            return;
+        } else if ( password === "" || password !== "123") {
+            alert("sth wrong, try again")
+            return;
+        }
 
+        signinUser({ userName, password })
+            .then( res => {
+                if (res.success) {
+                    loginModalhide();
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            });
     };
 
     render() {
@@ -48,18 +71,21 @@ class Login extends Component {
                                     <input 
                                         type="text"
                                         placeholder="Account" 
-                                        className=""/>
+                                        className=""
+                                        onChange={this.handleChange}/>
                                     <input 
                                         type="password"
                                         placeholder="Password" 
-                                        className=""/>
+                                        className=""
+                                        onChange={this.handleChange}/>
 
-                                    <button>
+
+                                    <button onClick={this.toLogin}>
                                          Log in
                                      </button>
 
                                      <a>Forgot password?</a>
-                                     <p className="agreement">Log in means your agree with that we spy on your phone lol</p>
+                                     <p className="agreement">I agree</p>
 
                                 </div>
                             </div>
@@ -69,6 +95,8 @@ class Login extends Component {
                 </ModalContainer> 
         );
     }
+
+
 };
 
 
@@ -79,7 +107,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
     return bindActionCreators(
         {
-            // signUser,
+            signinUser,
             loginModalhide
         },
         dispatch

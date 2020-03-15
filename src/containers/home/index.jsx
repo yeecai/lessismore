@@ -10,7 +10,7 @@ export class Home extends React.Component {
     constructor() {
         super();
         this.state = {
-            data: [{title:"aaaaaa", content:"dfasdfasd"}],
+            data: [{title:"aaaaaa", content:" "}],
             // data: [],
             hasMore: false, // 是否有下一页
             active: 0
@@ -27,7 +27,7 @@ export class Home extends React.Component {
     fetchList (params, isRefresh) {
         addLoading();
         axios({
-          url: "https://www.easy-mock.com/mock/590766877a878d73716e4067/mock/list",
+          url: "http://120.78.214.127:8080",
           params: params
         }).then(res => {
           const { result, success } = res.data;

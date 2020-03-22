@@ -10,7 +10,7 @@ export class Home extends React.Component {
     constructor() {
         super();
         this.state = {
-            data: [{title:"aaaaaa", content:" "}],
+            data: [{title:"aaaaaa", content:" "}, {title: "data 2", id: 2}],
             // data: [],
             hasMore: false, // 是否有下一页
             active: 0
@@ -19,8 +19,10 @@ export class Home extends React.Component {
     }
 
     componentDidMount() {
+      console.log("-----mount");
+      
         // page 为当前页码，type 为列表类型："推荐", "生活", "科技"
-        this.fetchList({ page: 1, type: 0 });
+        // this.fetchList({ page: 1, type: 0 });
         setTimeout(removeLoading, 100);        
       }
 
@@ -48,9 +50,17 @@ export class Home extends React.Component {
         });
     }
 
-    toDetails = () => {
-      const {loginModalShow} = this.props;
-      loginModalShow();
+    toDetails = id => {
+      const { authenticated, loginModalShow} = this.props;
+      console.log("--------------toDetails" + authenticated);
+      if ( authenticated ) {
+        const { history } = this.props;
+        history.push({
+            pathname: `/details/${id}`
+        });
+      } else {
+        loginModalShow();
+      }
     };
 
     // why arrow function like "toDetails = () => {}" not working here
@@ -74,8 +84,7 @@ export class Home extends React.Component {
                                 <a 
                                     className="article-item"
                                     key={index}
-                                    // onClick={() => this.toDetails(item.id)}
-                                    onClick={loginModalShow}
+                                    onClick={() => this.toDetails(item.id)}
                                 >
                                      <h4>{item.title}</h4>
                                      <div className="content">
@@ -92,7 +101,9 @@ export class Home extends React.Component {
         );
     }
 }
-
+const mapStateToProps = state => ({
+      authenticated: state.auth.authenticated
+})
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
@@ -103,7 +114,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Home);
 

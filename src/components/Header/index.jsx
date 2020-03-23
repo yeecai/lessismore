@@ -3,10 +3,22 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import "./index.less";
-import { loginModalShow } from "../../actions/index";
+import { loginModalShow, signoutUser } from "../../actions/index";
+
+
 
 const Header = props => {
-    const { loginModalShow } = props;
+
+
+    const { loginModalShow, authenticated, signoutUser } = props;
+
+    let button;
+ 
+    if (authenticated) {
+      button =  <button onClick={signoutUser}>log out</button>
+    } else {
+      button =  <button onClick={loginModalShow}>log in</button>
+    }
     return (
         <header>
             <nav className="header-title">
@@ -18,23 +30,31 @@ const Header = props => {
                 </div>
                 {/* Its login button! */}
                 <div className="header-login">
-                    <button onClick={loginModalShow}>log in</button>
+               
+                {button}
+
                 </div>
             </nav>
         </header>
     );
 };
 
+
+const mapStateToProps = state => ({
+  authenticated: state.auth.authenticated
+})
+
 const mapDispatchToProps = dispatch => {
     return bindActionCreators(
       {
-        loginModalShow
+        loginModalShow,
+        signoutUser
       },
       dispatch
     );
   };
 
 export default connect(
-    null,
+  mapStateToProps,
   mapDispatchToProps
 )(Header);

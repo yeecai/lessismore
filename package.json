@@ -19,6 +19,7 @@
     "react-redux": "^6.0.0",
     "react-router-dom": "^5.1.2",
     "react-router-redux": "^4.0.8",
+    "react-scripts": "^3.4.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
@@ -59,5 +60,6 @@
     "testMatch": [
       "**/__tests__/*.(ts|js)"
     ]
-  }
+  },
+  "proxy": "https://ai.rmbot.cn"
 }

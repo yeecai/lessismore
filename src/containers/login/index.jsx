@@ -30,13 +30,13 @@ class Login extends Component {
     toLogin = () => {
         const { userName, password } = this.state;
         const { signinUser, loginModalhide } = this.props;
-        if (userName === "" || userName !== "admin") {
-            alert("wrong account or password bro");
-            return;
-        } else if ( password === "" || password !== "123") {
-            alert("sth wrong, try again")
-            return;
-        }
+        // if (userName === "" || userName !== "admin") {
+        //     alert("wrong account or password bro");
+        //     return;
+        // } else if ( password === "" || password !== "123") {
+        //     alert("sth wrong, try again")
+        //     return;
+        // }
 
         // dispatch({ type: AUTH_USER });
         localStorage.setItem("token",123456);

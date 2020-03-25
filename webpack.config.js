@@ -42,8 +42,16 @@ var config = {
     ]
   },
   devServer: {
-    port: 3000,
-    contentBase: "./dist"
+    proxy: {
+      hot: true,
+      port: 3002, // this is your local port!!!
+        '/**': {
+          target: "https://ai.rmbot.cn",
+          secure: false,
+          changeOrigin: true,
+          logLevel: "info"
+      },
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

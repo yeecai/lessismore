@@ -33,11 +33,14 @@ export const signinUser = ({ userName, password }) => dispatch => {
     // })
     dispatch({ type: AUTH_USER });
 
-fetch( '/website/user/login',
-{
-  method: 'post',
-   body: { userName, password }
-})
+// fetch( 'https://ai.rmbot.cn/website/user/login',
+// {
+//   method: 'post',
+//    body: { userName, password }
+// })
+
+// cors 
+    
     axios.post(
       // ROOT_URL + '/website/user/login',  cors
       '/website/user/login',

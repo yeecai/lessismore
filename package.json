@@ -8,7 +8,7 @@
     "build": "webpack -p",
     "test": "jest",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -65,5 +65,5 @@
       "**/__tests__/*.(ts|js)"
     ]
   },
-  "homepage": "https://yeecai.github.io/lessismore"
+  "homepage": "."
 }

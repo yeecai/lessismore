@@ -1,0 +1,103 @@
+.fade {
+    .modial-dailog {
+        transform: translate(0 , 0);
+    }
+    &:not(.show) {
+        opacity: 0;
+      }
+}
+
+.show {
+    opacity: 1;
+
+}
+
+.modal {
+    position: fixed;
+    z-index: 1050;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    .modal-dialog{
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin: 0.5rem;
+            -webkit-box-align: center;
+            min-height: calc(100% - (0.5rem * 2));
+    }
+    .modal-content {
+        height: 80%;
+        position: relative;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 12px;
+        outline: 0;
+    
+    }
+    .modal-header {
+        .iconfont {
+            padding: 10px;
+            float: right;
+        }
+        h4 {
+            padding: 10px 10px 0px 20px;
+            font-size: 24px;
+            font-weight: 500;
+            margin-top: 20px;
+            margin-bottom: 32px;
+        }
+    }
+    .modal-backdrop {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-body {
+        padding: 20px 30px;
+        input {
+            display: block;
+            width: 90%;
+            height: calc(2.25rem + 2px);
+            padding: 0.375rem 0.75rem 0.375rem 0.75rem;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            border-radius: 0.25rem;
+            border: 1px solid #ced4da;
+            background-clip: padding-box;
+            // -webkit-transition: border-color 0.15s ease-in-out,
+            // -webkit-box-shadow 0.15s ease-in-out;
+            // transition: border-color 0.15s ease-in-out,
+            // -webkit-box-shadow 0.15s ease-in-out;    
+        }
+        button {
+            background:#0b3e70;
+            border: 1px solid #ced4da;
+            // box-shadow: 2px #495057;
+            color: #fff;
+            width: 100%;
+            height: calc(2rem + 2px);
+            border-radius: 0.25rem;
+        }
+
+        a{
+            color: #0b3e70;
+            font-size: 14px;
+        }
+
+        .agreement {
+            font-size: 12px;
+            color: #007aca;
+            text-align: center;
+            margin-top: 55px;
+        }
+    }
+}
+

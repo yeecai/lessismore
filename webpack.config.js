@@ -9,8 +9,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 var config = {
   entry: APP_DIR + "/app.js",
   output: {
-    // path: BUILD_DIR,
-    path: '/',
+    path: BUILD_DIR,
+    // publicPath: "/lessismore/", // why the hell not working!!!
     filename: "bundle.js"
   },
   module: {

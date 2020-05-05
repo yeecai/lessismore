@@ -6,13 +6,16 @@
   "scripts": {
     "start": "webpack-dev-server --open --mode development --port 3002",
     "build": "webpack -p",
-    "test": "jest"
+    "test": "jest",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "babel": "^6.23.0",
+    "gh-pages": "^2.2.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "react": "^16.5.2",
@@ -61,5 +64,6 @@
     "testMatch": [
       "**/__tests__/*.(ts|js)"
     ]
-  }
+  },
+  "homepage": "http://yeecai.github.io/lessismore"
 }

@@ -20,7 +20,7 @@ render(
   <HashRouter>
     <Provider store={store}>
       <AppRouter />
-    </Provider>""
+    </Provider>
   </HashRouter>,
   document.getElementById("app")
 );

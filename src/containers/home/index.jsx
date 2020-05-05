@@ -5,13 +5,15 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { removeLoading, addLoading } from "../../components/Loading/index";
 import { loginModalShow } from "../../actions/index";
+import data from "../../../api/index.js"
 
 export class Home extends React.Component {
     constructor() {
         super();
         this.state = {
-            data: [{title:"aaaaaa", content:" "}, {title: "data 2", id: 2}],
-            // data: [],
+            data:
+             [{title:"data1", content:"test test "}, {title: "data2", content:"test test "}],
+            // data: [], lets fake it locally at 1st then use mockAPI 
             hasMore: false, // 是否有下一页
             active: 0
           };
@@ -20,7 +22,7 @@ export class Home extends React.Component {
 
     componentDidMount() {
       console.log("-----mount");
-      
+      data.getArticles((aricles) => this.setState({data: aricles}))
         // page 为当前页码，type 为列表类型："推荐", "生活", "科技"
         // this.fetchList({ page: 1, type: 0 });
         setTimeout(removeLoading, 100);        
@@ -91,7 +93,7 @@ export class Home extends React.Component {
                                          <img/>
                                         <p>{item.content}</p>
                                     </div>
-                                    <p className="item-footer">Author {item.work} got {item.num} likes!</p>
+                                    <p className="item-footer">Author {item.author} got {item.likes} likes!</p>
                                 </a>
                             )
                         })

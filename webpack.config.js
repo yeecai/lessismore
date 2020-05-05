@@ -10,7 +10,9 @@ var config = {
   entry: APP_DIR + "/app.js",
   output: {
     path: BUILD_DIR,
-    // publicPath: "/lessismore/", // why the hell not working!!!
+    // why the hell not working!!!
+    // because gh-pages -d dist
+    // and dist is in .gitignore
     filename: "bundle.js"
   },
   module: {
